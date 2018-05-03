@@ -40,15 +40,6 @@ public class RetrofitUtils {
             public Response intercept(Chain chain) throws IOException {
                 Request request = chain.request();
                 Response response = chain.proceed(request);
-                Headers headers = response.headers();
-                /*for (int i = 0; i < headers.size(); i++) {
-                    String key = headers.name(i);
-                    if ("Set-Cookie".equals(key)) {
-                        String value = headers.get(key);
-                        SpUtils.setdata("jsid",value);
-                        Log.e("TAG",value+":");
-                    }
-                }*/
                 if (RetrofitUtils.getRetrofitUtils().isConnected(BaseApp.activity)) {
                     int maxAge = 60*60*24*2;//缓存失效时间，单位为秒
                     return response.newBuilder()

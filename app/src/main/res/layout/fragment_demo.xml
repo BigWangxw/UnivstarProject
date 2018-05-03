@@ -1,13 +1,61 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:id="@+id/ll_tab"
     tools:context="com.example.dell.univstarproject.view.fragment.DemoFragment">
+<com.example.dell.univstarproject.model.bean.MyScrollView
+    android:id="@+id/myScrollView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        >
+        <TextView
+            android:id="@+id/commite_demo"
+            android:drawableTop="@mipmap/commit_work"
+            android:textColor="#a0837e7e"
+            android:text="提交课程作业"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <View
+            android:layout_width="50dp"
+            android:layout_height="0dp"/>
+        <TextView
+            android:id="@+id/fabu_demo"
+            android:gravity="center"
+            android:drawableTop="@mipmap/submit_work"
+            android:textColor="#a0837e7e"
+            android:text="发布求教作品"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+</com.example.dell.univstarproject.model.bean.MyScrollView>
+    <com.androidkun.xtablayout.XTabLayout
 
-</FrameLayout>
+        android:id="@+id/xTablayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:xTabIndicatorColor="#e9cd1c"
+        app:xTabIndicatorHeight="4dp"
+        app:xTabIndicatorWidth="15dp"
+        app:xTabSelectedTextColor="#f00"
+        app:xTabTextSize="15sp"
+        app:xTabSelectedTextSize="20sp"/>
+
+    <com.example.dell.univstarproject.model.bean.NoScrollViewPager
+        android:id="@+id/vip"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </com.example.dell.univstarproject.model.bean.NoScrollViewPager>
+
+</LinearLayout>
