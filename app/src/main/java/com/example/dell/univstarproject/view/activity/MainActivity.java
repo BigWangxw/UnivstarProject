@@ -76,7 +76,6 @@ public class MainActivity extends BaseActivity{
                 }
             }
         });
-
         message_img.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
