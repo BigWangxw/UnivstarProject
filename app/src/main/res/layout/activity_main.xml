@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.dell.univstarproject.view.activity.MainActivity">
+   <android.support.v7.widget.Toolbar
+       android:id="@+id/toobar"
+       android:layout_width="match_parent"
+       android:layout_height="?attr/actionBarSize"
+       android:background="#fff">
+
+      <ImageView
+
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:src="@mipmap/launch_logo"/>
+
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:orientation="horizontal"
+          android:gravity="right">
+         <ImageView
+             android:id="@+id/font_img"
+             android:visibility="invisible"
+             android:src="@mipmap/publish_valuable"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content" />
+         <ImageView
+             android:id="@+id/message_img"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_marginLeft="10dp"
+             android:layout_marginRight="10dp"
+             android:src="@mipmap/home_master_shape" />
+      </LinearLayout>
+   </android.support.v7.widget.Toolbar>
+
+   <FrameLayout
+       android:id="@+id/fg"
+       android:layout_width="match_parent"
+       android:layout_height="0dp"
+       android:layout_weight="1">
+
+   </FrameLayout>
+
+   <RadioGroup
+       android:id="@+id/rado_group"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:orientation="horizontal">
+
+      <RadioButton
+          android:id="@+id/teacher_btn"
+          android:text="名师"
+          android:textColor="@drawable/fontstyles"
+          android:drawableTop="@drawable/teacher"
+          android:gravity="center"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:checked="true"
+          android:button="@null" />
+      <RadioButton
+          android:id="@+id/demo_btn"
+          android:text="作业"
+          android:textColor="@drawable/fontstyles"
+          android:drawableTop="@drawable/demo"
+          android:gravity="center"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:button="@null" />
+      <RadioButton
+          android:id="@+id/baby_btn"
+          android:text="宝典"
+          android:textColor="@drawable/fontstyles"
+          android:drawableTop="@drawable/baby"
+          android:gravity="center"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:button="@null" />
+      <RadioButton
+          android:id="@+id/foreshow_btn"
+          android:text="预告"
+          android:textColor="@drawable/fontstyles"
+          android:drawableTop="@drawable/yugao"
+          android:gravity="center"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:button="@null" />
+      <RadioButton
+          android:id="@+id/my_btn"
+          android:text="我的"
+          android:drawableTop="@drawable/my"
+          android:textColor="@drawable/fontstyles"
+          android:gravity="center"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:button="@null" />
+   </RadioGroup>
+
+</LinearLayout>
