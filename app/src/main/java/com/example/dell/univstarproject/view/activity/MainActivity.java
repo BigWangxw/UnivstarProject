@@ -83,6 +83,7 @@ public class MainActivity extends BaseActivity implements MyScrollView.OnScrollL
                         break;
                     case R.id.my_btn:
                         setContentView(PersonageFragment.class);
+
                         break;
                 }
             }
