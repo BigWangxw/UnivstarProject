@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <com.youth.banner.Banner
+        android:id="@+id/banner"
+        android:layout_width="match_parent"
+        android:layout_height="180dp">
+    </com.youth.banner.Banner>
+    <LinearLayout
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+        android:textColor="#dd797777"
+        android:text="找老师"
+        android:gravity="center"
+        android:drawableTop="@mipmap/home_master_find_shape"
+        android:id="@+id/zhao_tea"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content" />
+        <TextView
+            android:textColor="#dd797777"
+            android:text="线上课"
+            android:gravity="center"
+            android:drawableTop="@mipmap/home_master_look_shape"
+            android:id="@+id/xian_class"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:textColor="#dd797777"
+            android:text="交作业"
+            android:gravity="center"
+            android:drawableTop="@mipmap/home_master_work_shape"
+            android:id="@+id/comm_tea"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:textColor="#dd797777"
+            android:text="聊艺考"
+            android:gravity="center"
+            android:drawableTop="@mipmap/home_master_chat_shape"
+            android:id="@+id/liao_tea"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:textColor="#dd797777"
+            android:text="线下课"
+            android:gravity="center"
+            android:drawableTop="@mipmap/home_master_learn_shape"
+            android:id="@+id/xia_class"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+</LinearLayout>

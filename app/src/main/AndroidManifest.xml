@@ -3,7 +3,11 @@
     package="com.example.dell.univstarproject">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
+        android:name=".base.BaseApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -17,10 +21,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.activity.AnimalActivity">
-
-        </activity>
-        <activity android:name=".view.activity.MessageActivity"></activity>
+        <activity android:name=".view.activity.AnimalActivity" />
+        <activity android:name=".view.activity.MessageActivity" />
+        <activity android:name=".view.activity.AddActivity" />
+        <activity android:name=".view.activity.SeeActivity" />
+        <activity android:name=".view.activity.FurActivity" />
+        <activity android:name=".view.activity.MingTeacherActivity" />
+        <activity android:name=".view.activity.TeacherFirstActivity" />
+        <activity android:name=".view.activity.LiveActivity" />
+        <activity android:name=".view.activity.LiveXiangQingActivity"></activity>
     </application>
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+
 </manifest>

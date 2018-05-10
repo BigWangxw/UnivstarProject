@@ -20,6 +20,8 @@ import com.example.dell.univstarproject.base.BaseApp;
 import com.example.dell.univstarproject.base.BaseFragment;
 import com.example.dell.univstarproject.model.bean.MyScrollView;
 import com.example.dell.univstarproject.model.bean.NoScrollViewPager;
+import com.example.dell.univstarproject.presenter.DemoContrcat;
+import com.example.dell.univstarproject.presenter.DemoPresenter;
 
 import java.util.ArrayList;
 
@@ -32,9 +34,10 @@ public class DemoFragment extends BaseFragment  {
     private XTabLayout tab_layout;
     private TextView commite_demo;
     private TextView fabu_demo;
-    private NoScrollViewPager vip;
+    private ViewPager vip;
     private ArrayList<Fragment> fragmentArrayList;
     private ArrayList<String> arrayList;
+
     @Override
     protected int getLayoutid() {
 
@@ -43,12 +46,14 @@ public class DemoFragment extends BaseFragment  {
 
     @Override
     protected void initView() {
+
+
         tab_layout = getView().findViewById(R.id.xTablayout);
         commite_demo = getView().findViewById(R.id.commite_demo);
         fabu_demo = getView().findViewById(R.id.fabu_demo);
         vip = getView().findViewById(R.id.vip);
-        vip.setCurrentItem(0);
-        vip.setNoScroll(true);
+//        vip.setCurrentItem(0);
+//        vip.setNoScroll(true);
 
     }
 
@@ -66,7 +71,7 @@ public class DemoFragment extends BaseFragment  {
         fragmentArrayList.add(new BrainPowerFragment());
         fragmentArrayList.add(new EarwigFragment());
         fragmentArrayList.add(new NewstFragment());
-        ViewPagerAdapters adapters = new ViewPagerAdapters(getActivity().getSupportFragmentManager(),arrayList,fragmentArrayList);
+        ViewPagerAdapters adapters = new ViewPagerAdapters(getActivity().getSupportFragmentManager(),fragmentArrayList,arrayList);
         vip.setCurrentItem(0);
         vip.setAdapter(adapters);
         tab_layout.setupWithViewPager(vip);

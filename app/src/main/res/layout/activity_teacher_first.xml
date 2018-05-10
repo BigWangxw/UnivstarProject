@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#fff"
+    tools:context="com.example.dell.univstarproject.view.activity.TeacherFirstActivity">
+
+    <RelativeLayout
+        android:id="@+id/qingtafudao"
+        android:layout_width="match_parent"
+        android:background="#00acff"
+        android:layout_alignParentBottom="true"
+        android:layout_height="@dimen/ts_48" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center_vertical"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="@dimen/ts_36"
+                android:src="@mipmap/detail_coach_img"
+                android:layout_height="@dimen/ts_36" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="请TA辅导"
+                android:textColor="#fff"
+                android:layout_marginLeft="@dimen/ts_8"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/ts_202">
+
+
+                <ImageView
+
+                    android:id="@+id/masterdetail_img"
+                    android:layout_width="match_parent"
+                    android:scaleType="fitXY"
+                    android:layout_height="@dimen/ts_202" />
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_alignParentBottom="true"
+                    android:background="#80000000"
+                    android:layout_height="@dimen/ts_30">
+                    <LinearLayout
+                        android:id="@+id/linnnnnn"
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <Button
+                            android:layout_marginTop="@dimen/ts_2"
+                            android:id="@+id/biaoqian_btn"
+                            android:textColor="#fff"
+                            android:background="@drawable/buttonselected"
+                            android:layout_width="100dp"
+                            android:layout_height="25dp" />
+                    </LinearLayout>
+                    <CheckBox
+                        android:id="@+id/zan_check"
+                        android:layout_width="wrap_content"
+                        android:button="@drawable/detailpraise_check_bg"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="@dimen/ts_12"
+                        android:layout_height="wrap_content"
+                        android:checked="false"
+                        android:layout_centerVertical="true"
+                        android:paddingLeft="@dimen/ts_8"
+                        android:textColor="@drawable/detailpraise_check_tv_bg"/>
+                    <TextView
+                        android:text="123213"
+                        android:id="@+id/zan_num"
+                        android:textColor="#fff"
+                        android:layout_marginRight="@dimen/ts_10"
+                        android:layout_toRightOf="@+id/zan_check"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </RelativeLayout>
+
+
+            </RelativeLayout>
+            <LinearLayout
+                android:layout_marginTop="@dimen/ts_10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:orientation="horizontal">
+                <ImageView
+                    android:id="@+id/teachen_img"
+                    android:layout_width="@dimen/ts_40"
+                    android:layout_height="@dimen/ts_40" />
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginLeft="@dimen/ts_10"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/teacher_name"
+                        android:drawableRight="@mipmap/home_level_vip_red"
+                        android:textColor="#ff3700"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:id="@+id/teacher_type"
+                        android:layout_marginTop="@dimen/ts_8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/guanzhubtn"
+                    android:text="关注"
+                    android:textSize="@dimen/ts_16"
+                    android:layout_marginRight="@dimen/ts_10"
+                    android:textColor="#fff"
+                    android:background="@drawable/button_shape"
+                    android:layout_width="80dp"
+                    android:layout_height="@dimen/ts_30"
+                    android:layout_gravity="right|center" />
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:background="#10787878"/>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/ts_10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+               <LinearLayout
+                   android:layout_marginLeft="@dimen/ts_10"
+                   android:gravity="center"
+                   android:orientation="vertical"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content">
+                   <TextView
+
+
+                       android:id="@+id/class_num"
+                       android:text="0"
+                       android:textSize="@dimen/ts_16"
+                       android:textColor="#00acff"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content" />
+                   <TextView
+                       android:text="课程"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content" />
+               </LinearLayout>
+                <LinearLayout
+                    android:layout_marginLeft="@dimen/ts_20"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+
+
+                        android:id="@+id/demo_num"
+                        android:text="0"
+                        android:textSize="@dimen/ts_16"
+                        android:textColor="#00acff"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:text="作业"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginLeft="@dimen/ts_20"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+
+
+                        android:id="@+id/fudao_num"
+                        android:text="0"
+                        android:textSize="@dimen/ts_16"
+                        android:textColor="#00acff"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:text="辅导"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginLeft="@dimen/ts_20"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/tie_num"
+                        android:text="0"
+                        android:textSize="@dimen/ts_16"
+                        android:textColor="#00acff"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:text="帖子"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginLeft="@dimen/ts_20"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+
+
+                        android:id="@+id/guanzhu_num"
+                        android:text="0"
+                        android:textSize="@dimen/ts_16"
+                        android:textColor="#00acff"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:text="关注"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_marginLeft="@dimen/ts_20"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+
+
+                        android:id="@+id/fensi_num"
+                        android:text="0"
+                        android:textSize="@dimen/ts_16"
+                        android:textColor="#00acff"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:text="粉丝"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+            </LinearLayout>
+            <View
+                android:layout_marginTop="@dimen/ts_5"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:background="#10807b7b"/>
+            <com.example.dell.univstarproject.model.bean.MyScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/jianjie_tv"
+                android:textColor="#000"
+                android:layout_marginTop="@dimen/ts_15"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            </com.example.dell.univstarproject.model.bean.MyScrollView>
+        </LinearLayout>
+
+</RelativeLayout>

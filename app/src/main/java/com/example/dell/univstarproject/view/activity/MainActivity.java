@@ -16,15 +16,16 @@ import android.widget.RadioGroup;
 import com.example.dell.univstarproject.R;
 import com.example.dell.univstarproject.base.BaseActivity;
 import com.example.dell.univstarproject.model.bean.MyScrollView;
+import com.example.dell.univstarproject.model.bean.StatusBarCompat;
 import com.example.dell.univstarproject.view.fragment.BabyFragment;
 import com.example.dell.univstarproject.view.fragment.DemoFragment;
 import com.example.dell.univstarproject.view.fragment.ForeShowFragment;
 import com.example.dell.univstarproject.view.fragment.PersonageFragment;
 import com.example.dell.univstarproject.view.fragment.TeacherFragment;
 
-public class MainActivity extends BaseActivity implements MyScrollView.OnScrollListener{
+public class MainActivity extends BaseActivity {
 
-    private ImageView font_img;
+    public   ImageView font_img;
     private ImageView message_img;
     private Toolbar toobar;
     private FrameLayout fg;
@@ -34,13 +35,7 @@ public class MainActivity extends BaseActivity implements MyScrollView.OnScrollL
     private RadioButton foreshow_btn;
     private RadioButton my_btn;
     private RadioGroup rado_group;
-    private LinearLayout ll_tab;
-    private MyScrollView myScrollView;
-    private int tabHeight;
-    private int tabTop;
-    private int scrollTop;
-    private int picBottom;
-    private WindowManager windowManager;
+
     @Override
     protected int getLayoutId() {
         return R.layout.activity_main;
@@ -50,9 +45,9 @@ public class MainActivity extends BaseActivity implements MyScrollView.OnScrollL
 
     @Override
     protected void initView() {
+        StatusBarCompat.translucentStatusBar(this,true);
         //windowManager = (WindowManager)getSystemService(Context.WINDOW_SERVICE);
-        ll_tab = findViewById(R.id.ll_tab);
-        myScrollView = findViewById(R.id.myScrollView);
+        AddFragment(R.id.fg,TeacherFragment.class,null);
         font_img = (ImageView) findViewById(R.id.font_img);
         message_img = (ImageView) findViewById(R.id.message_img);
         toobar = (Toolbar) findViewById(R.id.toobar);
@@ -64,62 +59,44 @@ public class MainActivity extends BaseActivity implements MyScrollView.OnScrollL
         foreshow_btn = (RadioButton) findViewById(R.id.foreshow_btn);
         my_btn = (RadioButton) findViewById(R.id.my_btn);
         rado_group = (RadioGroup) findViewById(R.id.rado_group);
-       // myScrollView.setOnScrollListener(this);
         rado_group.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 switch (checkedId) {
                     case R.id.teacher_btn:
-                        setContentView(TeacherFragment.class);
+                        AddFragment(R.id.fg,TeacherFragment.class,null);
                         break;
                     case R.id.demo_btn:
-                        setContentView(DemoFragment.class);
+                        AddFragment(R.id.fg,DemoFragment.class,null);
                         break;
                     case R.id.baby_btn:
-                        setContentView(BabyFragment.class).setTitle();
+                        AddFragment(R.id.fg,BabyFragment.class,null).setTitle();
                         break;
                     case R.id.foreshow_btn:
-                        setContentView(ForeShowFragment.class);
+                        AddFragment(R.id.fg,ForeShowFragment.class,null);
                         break;
                     case R.id.my_btn:
-                        setContentView(PersonageFragment.class);
-
+                        AddFragment(R.id.fg,PersonageFragment.class,null);
                         break;
                 }
             }
         });
-      /*  message_img.setOnClickListener(new View.OnClickListener() {
+        message_img.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this,MessageActivity.class));
                 overridePendingTransition(R.anim.trantion,R.anim.trantion1);
             }
-        });*/
-
+        });
+        font_img.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this,AddActivity.class));
+            }
+        });
     }
     @Override
     protected void loadData() {
-        setContentView(TeacherFragment.class);
 
     }
-
-  /*  @Override
-    public void onWindowFocusChanged(boolean hasFocus) {
-        super.onWindowFocusChanged(hasFocus);
-
-            if (hasFocus) {
-                tabHeight = ll_tab.getHeight();
-                tabTop = ll_tab.getTop();
-                scrollTop = myScrollView.getTop();
-
-            }
-
-    }*/
-
-    @Override
-    public void onScroll(int scrollY) {
-        int top = Math.max(scrollY, picBottom);
-        ll_tab.layout(0, top, ll_tab.getWidth(), top + ll_tab.getHeight());
-    }
-
 }

@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_margin="5dp">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:src="@mipmap/shanchuziji"
+            android:id="@+id/phto_img"
+            android:scaleType="fitXY"
+            android:layout_width="30dp"
+            android:layout_height="30dp" />
+        <TextView
+            android:layout_marginLeft="10dp"
+            android:id="@+id/nick_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginLeft="30dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/create_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_marginLeft="30dp"
+            android:id="@+id/source"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <TextView
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="30dp"
+        android:textColor="#000"
+        android:textSize="17sp"
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <ImageView
+        android:layout_marginTop="15dp"
+        android:scaleType="fitXY"
+        android:layout_marginLeft="30dp"
+        android:id="@+id/play_music"
+        android:src="@mipmap/play_music_bg"
+        android:layout_width="280dp"
+        android:layout_height="170dp" />
+<LinearLayout
+    android:layout_marginLeft="25dp"
+    android:layout_marginTop="6dp"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <ImageView
+        android:src="@mipmap/label_flag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:layout_marginLeft="5dp"
+        android:id="@+id/work_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</LinearLayout>
+    <TextView
+        android:visibility="gone"
+        android:id="@+id/teacher"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+   <LinearLayout
+
+       android:id="@+id/linear"
+       android:orientation="horizontal"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content">
+       <FrameLayout
+           android:layout_marginTop="5dp"
+           android:orientation="horizontal"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content">
+           <ImageView
+               android:src="@mipmap/comment"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content" />
+           <ImageView
+               android:id="@+id/tptho_img"
+               android:layout_marginTop="-5dp"
+               android:layout_marginLeft="10dp"
+               android:src="@drawable/zan"
+               android:layout_width="25dp"
+               android:layout_height="35dp" />
+       </FrameLayout>
+       <TextView
+           android:layout_marginTop="5dp"
+           android:text="111"
+           android:layout_marginLeft="10dp"
+           android:textColor="#ea5018"
+           android:id="@+id/reaname"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+            />
+       <ImageView
+           android:layout_marginTop="5dp"
+           android:src="@mipmap/home_level_vip_blue"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content" />
+       <View
+           android:layout_width="0dp"
+           android:layout_weight="1"
+           android:layout_height="0dp"/>
+       <Button
+           android:id="@+id/tou_btn"
+           android:text="1.0元偷听"
+           android:drawableRight="@mipmap/play_small"
+           android:layout_marginRight="10dp"
+           android:gravity="center"
+           android:background="@drawable/shang"
+           android:layout_width="wrap_content"
+           android:layout_height="30dp" />
+   </LinearLayout>
+    <TextView
+        android:visibility="gone"
+        android:id="@+id/tintrf"
+        android:layout_marginLeft="45dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RadioButton
+            android:button="@null"
+            android:drawableTop="@mipmap/reply_normal"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="20dp" />
+        <RadioButton
+            android:button="@null"
+            android:drawableTop="@drawable/zan"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content" />
+        <RadioButton
+            android:button="@null"
+            android:drawableTop="@mipmap/reward_active"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content" />
+        <RadioButton
+            android:button="@null"
+            android:drawableTop="@mipmap/share_default"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+</LinearLayout>

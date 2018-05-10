@@ -26,7 +26,7 @@ public abstract class BaseFragment<T extends BasePresenter> extends Fragment{
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-       // presenter = getPresenter();
+        presenter = getPresenter();
         if (presenter != null) {
             presenter.AcctachView(this);
         }
@@ -47,10 +47,10 @@ public abstract class BaseFragment<T extends BasePresenter> extends Fragment{
     protected abstract void loaddata();
     public T getPresenter() {
         Type type = getClass().getGenericSuperclass();
-        if (BaseActivity.class.equals(type)) {
+        if (BaseFragment.class.equals(type)) {
             return null;
         }
-        Type[] arguments = ((ParameterizedType) type).getActualTypeArguments();
+        Type[] arguments = ((ParameterizedType)type).getActualTypeArguments();
         Class<T> aClass = (Class<T>) arguments[0];
         try {
             return aClass.newInstance();
