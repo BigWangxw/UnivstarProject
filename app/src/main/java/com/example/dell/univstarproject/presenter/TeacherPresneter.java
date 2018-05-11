@@ -4,6 +4,7 @@ import android.content.Context;
 import android.util.Log;
 
 import com.example.dell.univstarproject.base.BaseApp;
+import com.example.dell.univstarproject.model.bean.DianZanUtils;
 import com.example.dell.univstarproject.model.bean.Quxiao;
 import com.example.dell.univstarproject.model.bean.Teacher;
 import com.example.dell.univstarproject.model.bean.ZanClick;
@@ -62,19 +63,18 @@ public class TeacherPresneter implements TeacherContrcat.TeacherPre{
 
     @Override
     public void dianzan(Integer userId, String id, String loginUserId, String type) {
-        Map<String,String> params = new HashMap<>();
+       /* Map<String,String> params = new HashMap<>();
         Map<String,String> headers = new HashMap<>();
         params.put("userId", id);
         params.put("id",id);
         params.put("loginUserId",loginUserId);
         params.put("type",type);
-        headers.put("apptoken", BaseApp.activity.getSharedPreferences("111", Context.MODE_PRIVATE).getString("xyxy_apptoken",""));
-        service.dianzan(headers,params).subscribeOn(Schedulers.newThread()).observeOn(AndroidSchedulers.mainThread()).subscribe(new Consumer<ResponseBody>() {
+        headers.put("apptoken", BaseApp.activity.getSharedPreferences("111", Context.MODE_PRIVATE).getString("xyxy_apptoken",""));*/
+        service.dianzan(DianZanUtils.getDianZanUtils().getheadres(),DianZanUtils.getDianZanUtils().getparamsMap(userId+"",id,loginUserId,type)).subscribeOn(Schedulers.newThread()).observeOn(AndroidSchedulers.mainThread()).subscribe(new Consumer<ResponseBody>() {
             @Override
             public void accept(ResponseBody zanClick) throws Exception {
 
                     String string = zanClick.string();
-                    Log.e("TAG",string);
                     view.showdianzan("赞一个");
             }
         });
@@ -95,9 +95,6 @@ public class TeacherPresneter implements TeacherContrcat.TeacherPre{
             public void accept(ResponseBody quxiao) throws Exception {
                 if (quxiao !=null) {
                     view.showquxiao("取消点赞");
-                } else {
-
-                    return;
                 }
             }
         });

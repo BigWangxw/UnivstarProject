@@ -14,5 +14,6 @@ public interface LiveContrcat {
     }
     public interface LivePre extends BasePresenter<LiveView> {
         void loadLiveBean();
+
     }
 }

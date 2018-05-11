@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.view.View;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
@@ -14,15 +15,22 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.BitmapImageViewTarget;
 import com.example.dell.univstarproject.R;
 import com.example.dell.univstarproject.adapter.NewstAdapter;
 import com.example.dell.univstarproject.base.BaseActivity;
+import com.example.dell.univstarproject.base.BaseApp;
 import com.example.dell.univstarproject.model.bean.ClassDetailed;
 import com.example.dell.univstarproject.presenter.DetailContrcat;
 import com.example.dell.univstarproject.presenter.DetailPresenter;
+import com.umeng.socialize.ShareAction;
+import com.umeng.socialize.UMShareListener;
+import com.umeng.socialize.bean.SHARE_MEDIA;
+import com.umeng.socialize.editorpage.ShareActivity;
+import com.umeng.socialize.media.UMImage;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -43,6 +51,48 @@ public class LiveXiangQingActivity extends BaseActivity<DetailPresenter> impleme
     private ImageView xiangqing_zan;
     private TextView xiangqing_buy;
 
+    private UMShareListener shareListener = new UMShareListener() {
+        /**
+         * @descrption 分享开始的回调
+         * @param platform 平台类型
+         */
+        @Override
+        public void onStart(SHARE_MEDIA platform) {
+
+        }
+
+        /**
+         * @descrption 分享成功的回调
+         * @param platform 平台类型
+         */
+        @Override
+        public void onResult(SHARE_MEDIA platform) {
+            Toast.makeText(LiveXiangQingActivity.this,"成功了",Toast.LENGTH_LONG).show();
+        }
+
+        /**
+         * @descrption 分享失败的回调
+         * @param platform 平台类型
+         * @param t 错误原因
+         */
+        @Override
+        public void onError(SHARE_MEDIA platform, Throwable t) {
+            Toast.makeText(LiveXiangQingActivity.this,"失败"+t.getMessage(),Toast.LENGTH_LONG).show();
+        }
+
+        /**
+         * @descrption 分享取消的回调
+         * @param platform 平台类型
+         */
+        @Override
+        public void onCancel(SHARE_MEDIA platform) {
+            Toast.makeText(LiveXiangQingActivity.this,"取消了",Toast.LENGTH_LONG).show();
+
+        }
+    };
+    private UMImage image;
+    ClassDetailed detailed;
+    int count = 0;
     @Override
     protected int getLayoutId() {
         return R.layout.activity_live_xiang_qing;
@@ -52,6 +102,7 @@ public class LiveXiangQingActivity extends BaseActivity<DetailPresenter> impleme
     protected void loadData() {
         final int classid = getIntent().getIntExtra("classid", 0);
         presenter.loadDetailBean(classid);
+
         xiangqing_web.loadUrl("http://share.univstar.com/view/live.html?id="+classid);
         WebSettings settings = xiangqing_web.getSettings();
         settings.setJavaScriptEnabled(true);
@@ -92,10 +143,27 @@ public class LiveXiangQingActivity extends BaseActivity<DetailPresenter> impleme
                 break;
                 //分享
             case R.id.xiangqing_fenxiang:
-
+                new ShareAction(LiveXiangQingActivity.this)
+                        .withMedia(image)
+                        .setDisplayList(SHARE_MEDIA.SINA,SHARE_MEDIA.QQ,SHARE_MEDIA.WEIXIN)
+                        .setCallback(shareListener)
+                        .open();
                 break;
                 //关注
             case R.id.xiangqing_guanzhu_btn:
+                if (TextUtils.isEmpty(BaseApp.activity.getSharedPreferences("111",MODE_PRIVATE).getString("xyxy_user_id",""))) {
+                    //去登陆
+                    Toast.makeText(this, "您尚未登陆", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                count++;
+               if (count %2 !=0) {
+                   presenter.loadDetailBean("662",detailed.getData().getId()+"");
+                   xiangqing_guanzhu_btn.setText("已关注");
+               } else {
+                   presenter.quxiaoguanzhu("662",detailed.getData().getId()+"");
+                   xiangqing_guanzhu_btn.setText("关注");
+               }
 
                 break;
         }
@@ -103,12 +171,12 @@ public class LiveXiangQingActivity extends BaseActivity<DetailPresenter> impleme
 
     @Override
     public void showDetailBean(ClassDetailed detailed) {
-        if (detailed == null) {
+        if (detailed == null)
 
             return;
-
-        } else {
-
+        this.detailed = detailed;
+        image = new UMImage(LiveXiangQingActivity.this, detailed.getData().getCoverImg());
+        image.compressStyle = UMImage.CompressStyle.SCALE;
             Glide.with(this).load(detailed.getData().getCoverImg()).into(xiangqing_big_img);
             SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             Date date = new Date(detailed.getData().getStartDate());
@@ -136,5 +204,5 @@ public class LiveXiangQingActivity extends BaseActivity<DetailPresenter> impleme
 
             });
         }
-    }
+
 }

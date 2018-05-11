@@ -17,9 +17,15 @@ import com.example.dell.univstarproject.base.BaseApp;
 import com.example.dell.univstarproject.model.bean.FirstBean;
 import com.example.dell.univstarproject.model.bean.PisicImage;
 import com.example.dell.univstarproject.view.activity.FurActivity;
+import com.example.dell.univstarproject.view.activity.HomeWorkDeailActivity;
 import com.example.dell.univstarproject.view.activity.LiveActivity;
+import com.example.dell.univstarproject.view.activity.MainActivity;
 import com.example.dell.univstarproject.view.activity.MingTeacherActivity;
 import com.example.dell.univstarproject.view.activity.SeeActivity;
+import com.example.dell.univstarproject.view.activity.TeacherFirstActivity;
+import com.example.dell.univstarproject.view.fragment.BabyFragment;
+import com.example.dell.univstarproject.view.fragment.DemoFragment;
+import com.example.dell.univstarproject.view.fragment.ForeShowFragment;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
 import com.youth.banner.listener.OnBannerListener;
@@ -126,6 +132,28 @@ public class FirstAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
                     mContext.startActivity(new Intent(mContext,LiveActivity.class));
                 }
             });
+            ((FirstViewHolder) holder).comm_tea.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    MainActivity.demo_btn.setChecked(true);
+                   BaseApp.activity.AddFragment(R.id.fg,DemoFragment.class,null);
+                }
+            });
+            ((FirstViewHolder) holder).liao_tea.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    MainActivity.baby_btn.setChecked(true);
+                    BaseApp.activity.AddFragment(R.id.fg,BabyFragment.class,null);
+                }
+            });
+            ((FirstViewHolder) holder).xia_class.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    MainActivity.foreshow_btn.setChecked(true);
+                    BaseApp.activity.AddFragment(R.id.fg,ForeShowFragment.class,null);
+
+                }
+            });
         } else if (holder instanceof OtherViewHolder) {
             final List<FirstBean.DataBean.UsersBean> list = dataBean.getUsers();
             TuiJianAdapter adapter = new TuiJianAdapter(list,mContext);
@@ -135,11 +163,13 @@ public class FirstAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
             adapter.setonclicklistener(new TuiJianAdapter.onclicklistener() {
                 @Override
                 public void onitemclick(int position) {
-                    listener.onitemclick(position);
+                    Intent intent = new Intent(mContext, TeacherFirstActivity.class);
+                    intent.putExtra("teaId",list.get(position).getId());
+                    mContext.startActivity(intent);
                 }
             });
         } else if (holder instanceof ThreeViewHolder) {
-            List<FirstBean.DataBean.LiveCoursesBean> liveCourses = dataBean.getLiveCourses();
+            final List<FirstBean.DataBean.LiveCoursesBean> liveCourses = dataBean.getLiveCourses();
             ClassAdapter adapter = new ClassAdapter((ArrayList<FirstBean.DataBean.LiveCoursesBean>) liveCourses,mContext);
             StaggeredGridLayoutManager manager = new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL);
             ((ThreeViewHolder) holder).class_recycle.setLayoutManager(manager);
@@ -147,11 +177,13 @@ public class FirstAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
             adapter.setonclicklistener(new ClassAdapter.onclicklistener() {
                 @Override
                 public void onitemclicklistener(int position) {
-                    listener.onitemclick(position);
+                  Intent intent = new Intent(mContext,FurActivity.class);
+                  intent.putExtra("id1",liveCourses.get(position).getId()+"");
+                  mContext.startActivity(intent);
                 }
             });
         } else if (holder instanceof FurViewHolder) {
-            List<FirstBean.DataBean.HomewoksBean> homewoks = dataBean.getHomewoks();
+            final List<FirstBean.DataBean.HomewoksBean> homewoks = dataBean.getHomewoks();
             HomeWorkAdapter adapter = new HomeWorkAdapter(homewoks,mContext);
             LinearLayoutManager manager = new LinearLayoutManager(mContext,LinearLayoutManager.VERTICAL,false);
             ((FurViewHolder) holder).fur_recycle.setLayoutManager(manager);
@@ -159,7 +191,9 @@ public class FirstAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
             adapter.setonclicklistener(new HomeWorkAdapter.onclciklistener() {
                 @Override
                 public void onitemclick(int position) {
-                    listener.onitemclick(position);
+                    Intent intent = new Intent(mContext,HomeWorkDeailActivity.class);
+                    intent.putExtra("deail",homewoks.get(position).getId());
+                    mContext.startActivity(intent);
                 }
             });
         }

@@ -1,6 +1,7 @@
 package com.example.dell.univstarproject.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.example.dell.univstarproject.R;
 import com.example.dell.univstarproject.model.bean.FirstBean;
+import com.example.dell.univstarproject.view.activity.TeacherFirstActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -50,7 +52,7 @@ public class TuiJianAdapter extends RecyclerView.Adapter<TuiJianAdapter.ViewHold
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                listener.onitemclick(position);
+              listener.onitemclick(position);
             }
         });
     }

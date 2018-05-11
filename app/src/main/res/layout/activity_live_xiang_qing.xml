@@ -198,7 +198,7 @@
                 android:layout_marginRight="@dimen/ts_10"
                 android:text="关注"
                 android:textColor="#fff"
-
+                android:background="#00acff"
                 android:layout_width="50dp"
                 android:layout_height="32dp" />
         </LinearLayout>
@@ -242,7 +242,8 @@
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-            <ImageView
+            <ImageButton
+                android:background="#fff"
                 android:id="@+id/xiangqing_zan"
                 android:scaleType="center"
                 android:button="@null"

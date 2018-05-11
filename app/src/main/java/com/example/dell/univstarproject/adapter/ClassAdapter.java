@@ -54,6 +54,7 @@ public class ClassAdapter extends RecyclerView.Adapter<ClassAdapter.ViewHolder>{
             @Override
             public void onClick(View v) {
                 listener.onitemclicklistener(position);
+
             }
         });
     }

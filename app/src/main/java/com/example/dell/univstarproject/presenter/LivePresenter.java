@@ -1,6 +1,7 @@
 package com.example.dell.univstarproject.presenter;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.example.dell.univstarproject.base.BaseApp;
 import com.example.dell.univstarproject.model.bean.LiveBean;
@@ -13,6 +14,7 @@ import java.util.Map;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
+import okhttp3.ResponseBody;
 
 /**
  * 作者:天南地北，旺哥最美！
@@ -57,4 +59,6 @@ public class LivePresenter implements LiveContrcat.LivePre{
             }
         });
     }
+
+
 }

@@ -3,6 +3,7 @@ package com.example.dell.univstarproject.view.activity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -11,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.dell.univstarproject.R;
@@ -43,6 +45,7 @@ public class TeacherFirstActivity extends BaseActivity<TeacherPresneter> impleme
     private CheckBox zan_check;
     private TextView zan_num;
     private Button guanzhubtn;
+    private Teacher teacher;
 
     @Override
     protected int getLayoutId() {
@@ -75,6 +78,32 @@ public class TeacherFirstActivity extends BaseActivity<TeacherPresneter> impleme
         jianjie_tv = (TextView) findViewById(R.id.jianjie_tv);
         guanzhubtn = (Button) findViewById(R.id.guanzhubtn);
         biaoqian_btn.setOnClickListener(this);
+        checklistener();
+
+    }
+
+    private void checklistener() {
+        zan_check.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (TextUtils.isEmpty(BaseApp.activity.getSharedPreferences("111",MODE_PRIVATE).getString("xyxy_user_id",""))) {
+                    //去登陆
+                    Toast.makeText(TeacherFirstActivity.this, "您尚未登陆,不能点赞", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (isChecked){
+                    //执行加一的操作
+                    presenter.dianzan(0,teacher.getData().getUser().get_$Id32()+"","662","老师");
+                    zan_check.setText(teacher.getData().getPraise().getPraiseCount()+1+"");
+
+                }else {
+                    presenter.quxiao(0,teacher.getData().getUser().get_$Id32()+"","662","老师");
+                    //zan_check.setText(teacher.getData().getPraise().getPraiseCount()+"");
+
+                }
+
+            }
+        });
     }
 
     @Override
@@ -88,11 +117,9 @@ public class TeacherFirstActivity extends BaseActivity<TeacherPresneter> impleme
 
     @Override
     public void showTeacherBean(final Teacher teacher) {
-        if (teacher == null) {
+        if (teacher == null)
             return;
-
-        } else {
-
+            this.teacher = teacher;
             Teacher.DataBean.UserBean user = teacher.getData().getUser();
             Glide.with(this).load(user.getImages()).into(masterdetail_img);
             biaoqian_btn.setText(user.getSkilled());
@@ -108,54 +135,28 @@ public class TeacherFirstActivity extends BaseActivity<TeacherPresneter> impleme
             jianjie_tv.setText(user.getDetails()+"");
             Glide.with(this).load(user.getPhoto()).into(teachen_img);
             if (teacher.getData().getPraise().getIsPraise() == 0) {
-
-
                 zan_check.setChecked(false);
-
             }else {
-
                 zan_check.setText(teacher.getData().getPraise().getPraiseCount() + "");
-                zan_check.setChecked(true);
+                //zan_check.setChecked(true);
 
             }
-                zan_check.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-                @Override
-                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                    if (TextUtils.isEmpty(BaseApp.activity.getSharedPreferences("111",MODE_PRIVATE).getString("xyxy_user_id",""))) {
-                        //如果Userid为空   那么去登陆
-                        //startIntent(gotoLoginAcitivty.class)
-                        if (isChecked ==true) {
-                            if (teacher.getData().getPraise().getIsPraise() == 0) {
-                                zan_check.setText(teacher.getData().getPraise().getPraiseCount()+"");
-                                zan_check.setChecked(false);
-                            }else {
-                                presenter.dianzan(0,teacher.getData().getUser().get_$Id32()+"","662","老师");
-                                zan_check.setText(teacher.getData().getPraise().getPraiseCount()+1+"");
-                                zan_check.setChecked(true);
-                            }
-                        } else {
 
-                            presenter.quxiao(0,teacher.getData().getUser().get_$Id32()+"","662","老师");
-                            zan_check.setText(teacher.getData().getPraise().getPraiseCount()+"");
-                        }
-                    }else {
-                            //跳转登录界面
-                    }
-
-                }
-            });
-        }
     }
 
     @Override
     public void showdianzan(String zanClick) {
+        checklistener();
         ToastBean.showmessage(this,zanClick);
+        Log.e("点赞",teacher.getData().getPraise().getPraiseCount()+"");
+        //zan_check.setText(teacher.getData().getPraise().getPraiseCount()+"");
+
     }
 
     @Override
     public void showquxiao(String quxiao) {
         ToastBean.showmessage(this,quxiao);
-
+        zan_check.setText(teacher.getData().getPraise().getPraiseCount()+"");
     }
 
 

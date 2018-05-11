@@ -30,9 +30,9 @@ public class MainActivity extends BaseActivity {
     private Toolbar toobar;
     private FrameLayout fg;
     private RadioButton teacher_btn;
-    private RadioButton demo_btn;
-    private RadioButton baby_btn;
-    private RadioButton foreshow_btn;
+    public static RadioButton demo_btn;
+    public static RadioButton baby_btn;
+    public static RadioButton foreshow_btn;
     private RadioButton my_btn;
     private RadioGroup rado_group;
 

@@ -3,7 +3,9 @@ package com.example.dell.univstarproject.model.entry;
 import com.example.dell.univstarproject.model.bean.AppTokenBean;
 import com.example.dell.univstarproject.model.bean.BabyBean;
 import com.example.dell.univstarproject.model.bean.ClassDetailed;
+import com.example.dell.univstarproject.model.bean.ControllerBean;
 import com.example.dell.univstarproject.model.bean.Course;
+import com.example.dell.univstarproject.model.bean.DeailBean;
 import com.example.dell.univstarproject.model.bean.DemoBean;
 import com.example.dell.univstarproject.model.bean.DemoFirstBean;
 import com.example.dell.univstarproject.model.bean.FirstBean;
@@ -85,4 +87,19 @@ public interface DemoService {
     @FormUrlEncoded
     @POST("/v1/m/liveCourse/detail")
     Observable<ClassDetailed> loadClassDetail(@HeaderMap Map<String,String> headers, @FieldMap Map<String,String> map);
+
+    @FormUrlEncoded
+    @POST("/v1/m/user/attention")
+    Observable<ResponseBody> guanzhu(@HeaderMap Map<String,String> headers, @FieldMap Map<String,String> map);
+    @FormUrlEncoded
+    @POST("/v1/m/user/attention/cancel")
+    Observable<ResponseBody> quxiaoguanzhu(@HeaderMap Map<String,String> headers, @FieldMap Map<String,String> map);
+
+    @FormUrlEncoded
+    @POST("/v1/m/gift/list")
+    Observable<ControllerBean> loadController(@HeaderMap Map<String,String> headers, @FieldMap Map<String,String> map);
+
+    @FormUrlEncoded
+    @POST("/v1/m/homewok/detail")
+    Observable<DeailBean> loadDeailBean (@HeaderMap Map<String,String> headers, @FieldMap Map<String,String> map);
 }
