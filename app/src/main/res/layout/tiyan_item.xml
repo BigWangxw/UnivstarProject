@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="170dp"
+            android:id="@+id/tiyan_image"/>
+        <Button
+            android:layout_width="70dp"
+            android:layout_height="30dp"
+            android:text="声乐"
+            android:layout_marginLeft="-11dp"
+            android:textColor="#ffff"
+            android:background="@drawable/shapee"
+            android:id="@+id/button2" />
+        <TextView
+            android:background="#f2eeee"
+            android:textColor="#686767"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:id="@+id/tiyan_date"
+            android:layout_alignBottom="@+id/tiyan_image"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+    </RelativeLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="10dp" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:id="@+id/tiyan_dizhi"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="10dp" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/wahaha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="已预约"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tiyan_issum"
+            android:layout_toRightOf="@+id/wahaha"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/tiyan_issum"
+            android:id="@+id/tiyan_sum"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="         "
+            android:id="@+id/tiyan_piece"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="15dp"
+            android:layout_marginEnd="15dp" />
+    </RelativeLayout>
+
+
+
+
+</LinearLayout>

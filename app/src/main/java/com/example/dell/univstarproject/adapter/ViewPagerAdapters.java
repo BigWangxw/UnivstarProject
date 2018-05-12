@@ -12,14 +12,13 @@ import java.util.ArrayList;
  */
 
 public class ViewPagerAdapters extends FragmentPagerAdapter{
-
-    private ArrayList<Fragment> fragmentArrayList;
     private ArrayList<String> mList;
+    private ArrayList<Fragment> fragmentArrayList;
 
-    public ViewPagerAdapters(FragmentManager fm, ArrayList<Fragment> fragmentArrayList, ArrayList<String> mList) {
+    public ViewPagerAdapters(FragmentManager fm, ArrayList<String> mList, ArrayList<Fragment> fragmentArrayList) {
         super(fm);
-        this.fragmentArrayList = fragmentArrayList;
         this.mList = mList;
+        this.fragmentArrayList = fragmentArrayList;
     }
 
     @Override

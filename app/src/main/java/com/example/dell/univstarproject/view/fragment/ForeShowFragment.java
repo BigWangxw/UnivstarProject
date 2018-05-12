@@ -3,31 +3,18 @@ package com.example.dell.univstarproject.view.fragment;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 
 import com.example.dell.univstarproject.R;
-import com.example.dell.univstarproject.adapter.ForeAdapter;
 import com.example.dell.univstarproject.base.BaseFragment;
-import com.example.dell.univstarproject.model.bean.ForeBean;
-import com.example.dell.univstarproject.presenter.ForeContrcat;
-import com.example.dell.univstarproject.presenter.ForePresenter;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ForeShowFragment extends BaseFragment<ForePresenter> implements ForeContrcat.ForeView {
+public class ForeShowFragment extends BaseFragment {
 
-
-    private Button sizer_btn;
-    private RecyclerView fore_recycle;
 
     @Override
     protected int getLayoutid() {
@@ -36,13 +23,12 @@ public class ForeShowFragment extends BaseFragment<ForePresenter> implements For
 
     @Override
     protected void initView() {
-        sizer_btn = getView().findViewById(R.id.sizer_btn);
-        fore_recycle = getView().findViewById(R.id.fore_recycle);
+
     }
 
     @Override
     protected void loaddata() {
-        presenter.loadforedata();
+
     }
 
     @Override
@@ -58,14 +44,5 @@ public class ForeShowFragment extends BaseFragment<ForePresenter> implements For
     @Override
     public void setTitle() {
 
-    }
-
-    @Override
-    public void showbean(ForeBean foreBean) {
-        List<ForeBean.DataBean.ListBean> list = foreBean.getData().getList();
-        ForeAdapter adapter = new ForeAdapter((ArrayList<ForeBean.DataBean.ListBean>) list,getActivity());
-        LinearLayoutManager manager = new LinearLayoutManager(getActivity(),LinearLayoutManager.VERTICAL,false);
-        fore_recycle.setLayoutManager(manager);
-        fore_recycle.setAdapter(adapter);
     }
 }

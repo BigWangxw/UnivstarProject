@@ -1,61 +1,13 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
     tools:context="com.example.dell.univstarproject.view.fragment.BabyFragment">
 
-    <android.support.design.widget.CoordinatorLayout
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:text="@string/hello_blank_fragment" />
 
-        <android.support.design.widget.AppBarLayout
-            android:background="#fff"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fitsSystemWindows="true">
-
-            <LinearLayout
-                app:layout_scrollFlags="scroll"
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:orientation="horizontal">
-                <com.youth.banner.Banner
-                    android:id="@+id/baby_banner"
-                    android:layout_width="match_parent"
-                    android:layout_height="100dp">
-
-                </com.youth.banner.Banner>
-            </LinearLayout>
-
-
-
-            <com.androidkun.xtablayout.XTabLayout
-                app:xTabMode="scrollable"
-                android:id="@+id/baby_tablayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:xTabIndicatorColor="#e9cd1c"
-                app:xTabIndicatorHeight="4dp"
-                app:xTabIndicatorWidth="15dp"
-                app:xTabSelectedTextColor="#f00"
-                app:xTabTextSize="15sp"
-                app:xTabSelectedTextSize="20sp"/>
-
-        </android.support.design.widget.AppBarLayout>
-
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior">
-            <android.support.v4.view.ViewPager
-                android:id="@+id/baby_vip"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-            </android.support.v4.view.ViewPager>
-        </RelativeLayout>
-    </android.support.design.widget.CoordinatorLayout>
-
-</LinearLayout>
+</FrameLayout>

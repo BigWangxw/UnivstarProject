@@ -6,6 +6,6 @@ package com.example.dell.univstarproject.model.url;
  */
 
 public class RetrofitUrl {
-    public static final String BASE_URL="https://www.univstar.com/";
-
+    public static final String BASE_URL="https://www.univstar.com";
+    public static final String ZHUCE="https://www.univstar.com/v1/m/user/authcode";
 }

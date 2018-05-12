@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="250dp">
+        <ImageView
+            android:scaleType="centerCrop"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:id="@+id/zhibo_image"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:layout_below="@+id/zhibo_image"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:id="@+id/textView9" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/zhibo_teacher"
+            android:text="          "
+            android:layout_marginLeft="15dp"
+            android:layout_marginStart="15dp"
+            android:layout_below="@+id/textView9"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/home_level_vip_red"
+            android:id="@+id/imageView29"
+            android:layout_below="@+id/textView9"
+            android:layout_toRightOf="@+id/zhibo_teacher"
+            android:layout_toEndOf="@+id/zhibo_teacher" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:layout_below="@+id/zhibo_teacher"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/zhibo_isSub"
+            android:text="       "
+            android:layout_alignParentBottom="true"
+            android:layout_toLeftOf="@+id/zhibo_num"
+            android:layout_toStartOf="@+id/zhibo_num" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/zhibo_num"
+            android:text="       "
+            android:layout_alignBaseline="@+id/zhibo_isSub"
+            android:layout_alignBottom="@+id/zhibo_isSub"
+            android:layout_toRightOf="@+id/imageView29"
+            android:layout_toEndOf="@+id/imageView29" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/zhibo_piece"
+            android:text="          "
+            android:layout_alignBaseline="@+id/zhibo_isSub"
+            android:layout_alignBottom="@+id/zhibo_isSub"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="13dp"
+            android:layout_marginEnd="13dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="已关注"
+            android:textSize="10dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignLeft="@+id/zhibo_teacher"
+            android:layout_alignStart="@+id/zhibo_teacher" />
+    </RelativeLayout>
+
+
+</LinearLayout>

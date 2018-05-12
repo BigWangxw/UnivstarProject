@@ -13,7 +13,11 @@ import io.reactivex.functions.Function;
 import okhttp3.Interceptor;
 import okhttp3.Response;
 
-public class ReceivedCookiesInterceptor implements Interceptor {
+/**
+ * Created by vicoltree on 17/10/26.
+ */
+
+public class ReceivedCookiesInterceptor implements Interceptor{
 
 
     private Context context;
@@ -42,18 +46,14 @@ public class ReceivedCookiesInterceptor implements Interceptor {
                 public void accept(String s) throws Exception {
                     cookieBuffer.append(s).append(";");
                 }});
-
-
             String cookie = "";
             if(!TextUtils.isEmpty(cookieBuffer)){
                 String[] cookieBuffers = cookieBuffer.toString().split("=");
-
                 cookie = cookieBuffers[1].replace(";", "");
             }
-
-            SharedPreferences sharedPreferences = context.getApplicationContext().getSharedPreferences("111", Context.MODE_PRIVATE);
+            SharedPreferences sharedPreferences = context.getApplicationContext().getSharedPreferences(Constant.CookieSP, Context.MODE_PRIVATE);
             SharedPreferences.Editor editor = sharedPreferences.edit();
-            editor.putString("xyxy_cookiename", cookie);
+            editor.putString(Constant.CookieName, cookie);
             editor.commit();
         }
 

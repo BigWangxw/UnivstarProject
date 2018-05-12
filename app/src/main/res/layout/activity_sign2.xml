@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffff"
+    android:orientation="vertical"
+    tools:context="com.example.dell.univstarproject.sign.signview.SignActivity">
+<LinearLayout
+    android:id="@+id/sign_qian"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        >
+        <Button
+            android:id="@+id/sign_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#00000000"
+            android:text="关闭"
+            android:textColor="#9d9a9a"/>
+        <Button
+            android:id="@+id/sign_zhuce"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#00000000"
+            android:text="注册"
+            android:textColor="#9d9a9a"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp">
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <EditText
+            android:hint="输入手机号"
+            android:id="@+id/sign_phone"
+            android:layout_marginLeft="35dp"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/a"
+            android:layout_below="@+id/sign_phone"
+            android:layout_width="match_parent"
+            android:layout_height="20dp" />
+        <EditText
+            android:hint="输入密码"
+            android:layout_below="@+id/a"
+            android:id="@+id/sign_password"
+            android:layout_marginLeft="35dp"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content" />
+        <Button
+            android:text="忘记密码？"
+            android:background="#00000000"
+            android:layout_marginLeft="35dp"
+            android:layout_below="@+id/sign_password"
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+    <Button
+        android:id="@+id/sign"
+        android:text="登录"
+        android:textSize="18dp"
+        android:textColor="#ffff"
+        android:background="#0a3be9"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="35dp"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp">
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageButton
+            android:id="@+id/sign_weixin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/weixin"
+            android:background="#00000000"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="75dp"
+            android:layout_marginStart="75dp" />
+        <TextView
+            android:layout_marginLeft="76dp"
+            android:layout_marginStart="76dp"
+            android:layout_below="@+id/sign_weixin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="微信登录"
+            android:textSize="10dp"/>
+        <ImageButton
+            android:id="@+id/sign_qq"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/qq"
+            android:background="#00000000"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="  QQ登录"
+            android:textSize="10dp"
+            android:layout_below="@+id/sign_qq"
+            android:layout_alignLeft="@+id/sign_qq"
+            android:layout_alignStart="@+id/sign_qq" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#00000000"
+            android:src="@mipmap/weibo"
+            android:layout_marginLeft="45dp"
+            android:layout_marginStart="45dp"
+            android:id="@+id/sign_weibo"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/sign_qq"
+            android:layout_toEndOf="@+id/sign_qq" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="微博登录"
+            android:textSize="10dp"
+            android:layout_below="@+id/sign_weibo"
+            android:layout_alignRight="@+id/sign_weibo"
+            android:layout_alignEnd="@+id/sign_weibo" />
+    </RelativeLayout>
+</LinearLayout>
+</LinearLayout>

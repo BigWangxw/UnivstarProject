@@ -3,11 +3,16 @@ package com.example.dell.univstarproject.model.http;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+
 import java.io.IOException;
 
 import okhttp3.Interceptor;
 import okhttp3.Request;
 import okhttp3.Response;
+
+/**
+ * Created by vicoltree on 17/10/26.
+ */
 
 public class AddCookiesInterceptor implements Interceptor {
 
@@ -22,15 +27,13 @@ public class AddCookiesInterceptor implements Interceptor {
 
     @Override
     public Response intercept(Chain chain) throws IOException {
-
-
         final Request.Builder builder = chain.request().newBuilder();
-        SharedPreferences sharedPreferences = context.getApplicationContext().getSharedPreferences("111", Context.MODE_PRIVATE);
-        builder.addHeader("apptoken", sharedPreferences.getString("xyxy_apptoken", ""));
-        builder.addHeader("user-agent", sharedPreferences.getString("xyxy_user_agent", ""));
-        builder.addHeader("Authorization",sharedPreferences.getString("xyxy_cookiename",""));
-        builder.addHeader("did",sharedPreferences.getString("xyxy_solename",""));
-        builder.addHeader("cid", sharedPreferences.getString("xyxy_cidname", ""));
+        SharedPreferences sharedPreferences = context.getApplicationContext().getSharedPreferences(Constant.CookieSP, Context.MODE_PRIVATE);
+        builder.addHeader("apptoken", sharedPreferences.getString(Constant.AppToken, ""));
+        builder.addHeader("user-agent", sharedPreferences.getString(Constant.User_Agent, ""));
+        builder.addHeader("Authorization",sharedPreferences.getString(Constant.CookieName,""));
+        builder.addHeader("did",sharedPreferences.getString(Constant.SoleName,""));
+        builder.addHeader("cid", sharedPreferences.getString(Constant.CidName, ""));
         return chain.proceed(builder.build());
     }
 }
