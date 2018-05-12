@@ -329,14 +329,13 @@ public class PersongeFragment extends BaseFragment implements View.OnClickListen
         }
         if (requestCode==88&&resultCode==88){
 
+
         }
         if (requestCode==111&&requestCode==111){
 
+
         }
         if (requestCode==222&&resultCode==222){
-
-
-
 
             ShapeUtils.getIntance().clear();
             String photo = data.getStringExtra("photo");
@@ -364,6 +363,8 @@ public class PersongeFragment extends BaseFragment implements View.OnClickListen
 
     @Override
     public void show(List<Fans.DataBean.ListBean> listBean) {
+
+
         fensi_count.setText(listBean.size()+"");
     }
 }
