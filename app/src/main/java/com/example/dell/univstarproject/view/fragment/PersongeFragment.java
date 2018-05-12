@@ -334,6 +334,10 @@ public class PersongeFragment extends BaseFragment implements View.OnClickListen
 
         }
         if (requestCode==222&&resultCode==222){
+
+
+
+
             ShapeUtils.getIntance().clear();
             String photo = data.getStringExtra("photo");
             glideRequest = Glide.with(this);
@@ -353,6 +357,8 @@ public class PersongeFragment extends BaseFragment implements View.OnClickListen
     }
     @Override
     public void showCon(GuanZhu guanZhu) {
+
+
         guanzhu_count.setText(guanZhu.getData().getSize()+"");
     }
 
