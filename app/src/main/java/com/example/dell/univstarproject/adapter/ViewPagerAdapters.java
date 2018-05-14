@@ -12,10 +12,10 @@ import java.util.ArrayList;
  */
 
 public class ViewPagerAdapters extends FragmentPagerAdapter{
-    private ArrayList<String> mList;
-    private ArrayList<Fragment> fragmentArrayList;
+    private ArrayList<Fragment> mList;
+    private ArrayList<String> fragmentArrayList;
 
-    public ViewPagerAdapters(FragmentManager fm, ArrayList<String> mList, ArrayList<Fragment> fragmentArrayList) {
+    public ViewPagerAdapters(FragmentManager fm, ArrayList<Fragment> mList, ArrayList<String> fragmentArrayList) {
         super(fm);
         this.mList = mList;
         this.fragmentArrayList = fragmentArrayList;
@@ -23,7 +23,7 @@ public class ViewPagerAdapters extends FragmentPagerAdapter{
 
     @Override
     public Fragment getItem(int position) {
-        return fragmentArrayList.get(position);
+        return mList.get(position);
     }
 
     @Override
@@ -33,6 +33,6 @@ public class ViewPagerAdapters extends FragmentPagerAdapter{
 
     @Override
     public CharSequence getPageTitle(int position) {
-        return mList.get(position);
+        return fragmentArrayList.get(position);
     }
 }

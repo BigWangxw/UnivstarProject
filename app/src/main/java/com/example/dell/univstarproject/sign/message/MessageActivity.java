@@ -30,7 +30,7 @@ public class MessageActivity extends AppCompatActivity implements View.OnClickLi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_message);
+        setContentView(R.layout.activity_m);
         Intent intent = getIntent();
         idd = intent.getIntExtra("idd", 0);
         initView();
@@ -49,7 +49,7 @@ public class MessageActivity extends AppCompatActivity implements View.OnClickLi
         message_tuan = (RelativeLayout) findViewById(R.id.message_tuan);
         text_guanzhu = (TextView) findViewById(R.id.text_guanzhu);
         message_guanzhu = (RelativeLayout) findViewById(R.id.message_guanzhu);
-        back=findViewById(R.id.message_back);
+        back= (ImageButton) findViewById(R.id.message_back);
         back.setOnClickListener(this);
         message_dingdan.setOnClickListener(this);
         message_zan.setOnClickListener(this);
@@ -71,10 +71,11 @@ public class MessageActivity extends AppCompatActivity implements View.OnClickLi
                 break;
             case R.id.message_tuan://团队
                 Intent intent = new Intent(this, TeamActivity.class);
-                startActivity(intent);
-                finish();
+                startActivityForResult(intent,1234);
                 break;
             case R.id.message_guanzhu://关注
+                Intent intent1 = new Intent(this, GuanzhuActivity.class);
+                startActivityForResult(intent1,1235);
                 break;
             case R.id.message_back://返回
                 break;
@@ -86,6 +87,14 @@ public class MessageActivity extends AppCompatActivity implements View.OnClickLi
         if (requestCode==10&&resultCode==10){
             String content = data.getStringExtra("content");
             text_tuandui.setText(content);
+        }
+        if (requestCode==1234&&resultCode==1234){
+            String aaa = data.getStringExtra("aaa");
+            text_tuandui.setText(aaa);
+        }
+        if (requestCode==1235&&resultCode==1235){
+            String bbb = data.getStringExtra("bbb");
+            text_guanzhu.setText(bbb+"关注了你");
         }
     }
 }

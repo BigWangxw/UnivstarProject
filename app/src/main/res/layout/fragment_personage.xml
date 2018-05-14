@@ -3,108 +3,106 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.dell.univstarproject.view.fragment.PersongeFragment">
-<LinearLayout
-    android:visibility="gone"
-    android:id="@+id/sign_qian"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="240dp">
-        <ImageView
-            android:scaleType="centerCrop"
-            android:layout_width="match_parent"
-            android:layout_height="170dp"
-            android:src="@mipmap/myself_head_bg"
-            android:id="@+id/imageView31" />
-        <ImageButton
-            android:id="@+id/start_icon"
-            android:background="#00000000"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/user_head_portrait"
-            android:layout_marginBottom="18dp"
-            android:layout_alignBottom="@+id/imageView31"
-            android:layout_centerHorizontal="true" />
-        <ImageButton
-            android:background="#00000000"
-            android:src="@mipmap/myself_setting"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/start_set"
-            android:layout_marginRight="19dp"
-            android:layout_marginEnd="19dp"
-            android:layout_marginTop="19dp"
-            android:layout_alignParentTop="true"
-            android:layout_toLeftOf="@+id/start_info"
-            android:layout_toStartOf="@+id/start_info" />
-        <ImageButton
-            android:background="#00000000"
-            android:src="@mipmap/myself_message"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/start_info"
-            android:layout_alignTop="@+id/start_set"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginRight="11dp"
-            android:layout_marginEnd="11dp" />
-    </RelativeLayout>
-
-    <RelativeLayout
+    tools:context="com.example.dell.univstarproject.view.fragment.PersonageFragment">
+    <LinearLayout
+        android:visibility="gone"
+        android:id="@+id/sign_qian"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        >
+        android:orientation="vertical">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="240dp">
+            <ImageView
+                android:scaleType="centerCrop"
+                android:layout_width="match_parent"
+                android:layout_height="170dp"
+                android:src="@mipmap/myself_head_bg"
+                android:id="@+id/imageView31" />
+            <ImageButton
+                android:id="@+id/start_icon"
+                android:background="#00000000"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/user_head_portrait"
+                android:layout_marginBottom="18dp"
+                android:layout_alignBottom="@+id/imageView31"
+                android:layout_centerHorizontal="true" />
+            <ImageButton
+                android:background="#00000000"
+                android:src="@mipmap/myself_setting"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/start_set"
+                android:layout_marginRight="19dp"
+                android:layout_marginEnd="19dp"
+                android:layout_marginTop="19dp"
+                android:layout_alignParentTop="true"
+                android:layout_toLeftOf="@+id/start_info"
+                android:layout_toStartOf="@+id/start_info" />
+            <ImageButton
+                android:background="#00000000"
+                android:src="@mipmap/myself_message"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/start_info"
+                android:layout_alignTop="@+id/start_set"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginRight="11dp"
+                android:layout_marginEnd="11dp" />
+        </RelativeLayout>
 
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="100dp">
-        <TextView
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:gravity="center"
-            android:text="登录后，享受更多精彩服务"
-            android:textColor="#c0baba"
-            android:id="@+id/textView10" />
+            >
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:gravity="center"
+                android:text="登录后，享受更多精彩服务"
+                android:textColor="#c0baba"
+                android:id="@+id/textView10" />
 
-        <Button
-            android:id="@+id/my_sign"
-            android:layout_width="130dp"
-            android:layout_height="40dp"
-            android:background="#fcf103"
-            android:text="登录"
-            android:textColor="#ffff"
-            android:textSize="15dp"
-            android:layout_marginLeft="35dp"
-            android:layout_marginTop="50dp"/>
-        <TextView
-            android:id="@+id/bagayalu"
-            android:layout_width="30dp"
-            android:layout_height="50dp"
-            android:layout_toRightOf="@+id/my_sign"
-            android:layout_marginTop="50dp"/>
+            <Button
+                android:id="@+id/my_sign"
+                android:layout_width="130dp"
+                android:layout_height="40dp"
+                android:background="#fcf103"
+                android:text="登录"
+                android:textColor="#ffff"
+                android:textSize="15dp"
+                android:layout_marginLeft="35dp"
+                android:layout_marginTop="50dp"/>
+            <TextView
+                android:id="@+id/bagayalu"
+                android:layout_width="30dp"
+                android:layout_height="50dp"
+                android:layout_toRightOf="@+id/my_sign"
+                android:layout_marginTop="50dp"/>
 
-        <Button
-            android:id="@+id/my_zhuce"
-            android:layout_width="130dp"
-            android:layout_height="40dp"
-            android:background="#3542f4"
-            android:text="注册"
-            android:textColor="#ffff"
-            android:textSize="15dp"
-            android:layout_marginRight="35dp"
-            android:layout_toRightOf="@+id/bagayalu"
-            android:layout_marginTop="50dp"
-            />
-    </RelativeLayout>
-</LinearLayout>
+            <Button
+                android:id="@+id/my_zhuce"
+                android:layout_width="130dp"
+                android:layout_height="40dp"
+                android:background="#3542f4"
+                android:text="注册"
+                android:textColor="#ffff"
+                android:textSize="15dp"
+                android:layout_marginRight="35dp"
+                android:layout_toRightOf="@+id/bagayalu"
+                android:layout_marginTop="50dp"
+                />
+        </RelativeLayout>
+    </LinearLayout>
     <LinearLayout
 
         android:id="@+id/sign_hou"
@@ -411,7 +409,7 @@
         <RelativeLayout
             android:background="#ffff"
             android:layout_width="match_parent"
-            android:layout_height="40dp">
+            android:layout_height="wrap_content">
             <Button
                 android:id="@+id/my_renzheng"
                 android:layout_width="wrap_content"
@@ -427,7 +425,20 @@
                 android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true"
                 android:layout_marginRight="14dp"
-                android:layout_marginEnd="14dp" />
+                android:layout_marginEnd="14dp"
+                android:id="@+id/imageButton3" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="待审核"
+                android:textColor="#fba004"
+                android:gravity="center_vertical"
+                android:layout_marginRight="15dp"
+                android:layout_marginEnd="15dp"
+                android:layout_alignBaseline="@+id/my_renzheng"
+                android:layout_alignBottom="@+id/my_renzheng"
+                android:layout_toLeftOf="@+id/imageButton3"
+                android:layout_toStartOf="@+id/imageButton3" />
         </RelativeLayout>
     </LinearLayout>
     <TextView
@@ -436,8 +447,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
     <TextView
+        android:visibility="gone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="gone"
         android:id="@+id/baga"/>
 </LinearLayout>

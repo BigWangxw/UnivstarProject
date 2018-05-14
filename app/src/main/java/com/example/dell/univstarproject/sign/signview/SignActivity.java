@@ -123,8 +123,8 @@ public class SignActivity extends BaseActivity implements View.OnClickListener,S
                 UMShareAPI umShareAPI = UMShareAPI.get(SignActivity.this);
                 umShareAPI.doOauthVerify(SignActivity.this, SHARE_MEDIA.QQ, umAuthListener);
                 Intent intent3 = getIntent();
-                intent3.putExtra("str","11");
-                setResult(123,intent3);
+                setResult(11111,intent3);
+                finish();
                 finish();
                 break;
             case R.id.sign_weibo:
@@ -172,6 +172,7 @@ public class SignActivity extends BaseActivity implements View.OnClickListener,S
         public void onComplete(SHARE_MEDIA platform, int action, Map<String, String> data) {
 
             Toast.makeText(SignActivity.this, "成功了", Toast.LENGTH_LONG).show();
+            Log.e("map",data+"");
         }
 
 

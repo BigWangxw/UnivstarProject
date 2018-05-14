@@ -12,6 +12,7 @@ import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -21,6 +22,7 @@ import android.widget.Toast;
 
 import com.example.dell.univstarproject.R;
 import com.example.dell.univstarproject.sign.signview.SignActivity;
+import com.googlecode.tesseract.android.TessBaseAPI;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -40,6 +42,8 @@ public class RenZhengActivity extends AppCompatActivity implements View.OnClickL
     private RelativeLayout relativeLayout;
     Bitmap photo;
     String picPath;
+    private TextView textView;
+    private Button tijiao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +60,9 @@ public class RenZhengActivity extends AppCompatActivity implements View.OnClickL
         renzheng_lingyu = (EditText) findViewById(R.id.renzheng_lingyu);
         renzheng_jieshao = (EditText) findViewById(R.id.renzheng_jieshao);
         renzheng_card = (RelativeLayout) findViewById(R.id.renzheng_card);
+        textView=findViewById(R.id.card_id);
+        tijiao=findViewById(R.id.button_tijiao);
+        tijiao.setOnClickListener(this);
         renzheng_back.setOnClickListener(this);
         renzheng_card.setOnClickListener(this);
         imageView10=findViewById(R.id.imageView10);
@@ -95,6 +102,9 @@ public class RenZhengActivity extends AppCompatActivity implements View.OnClickL
                                 startActivityForResult(i, 2);
                             }
                         }).create().show();
+                break;
+            case R.id.button_tijiao:
+                localre();
                 break;
         }
     }
@@ -140,6 +150,7 @@ public class RenZhengActivity extends AppCompatActivity implements View.OnClickL
 // 相片的完整路径
                                     this.picPath = file.getPath();
                                     imageView10.setImageBitmap(this.photo);
+                                    localre();
                                     relativeLayout.setVisibility(View.GONE);
                                 } catch (Exception e) {
                                     e.printStackTrace();
@@ -183,5 +194,40 @@ public class RenZhengActivity extends AppCompatActivity implements View.OnClickL
                     break;
             }
         }
+    }
+    //训练数据路径，tessdata
+    static final String TESSBASE_PATH = Environment.getExternalStorageDirectory() + "/";
+    //识别语言英文
+    static final String DEFAULT_LANGUAGE = "eng";
+
+    /**
+     * 传SD卡图片路径（当然你们也可以传Bitmap）
+     * @param
+     */
+    private void localre() {
+        //把图片转为Bitmap
+        Bitmap bmp = BitmapFactory.decodeFile(picPath);
+        //创建Tess
+        final TessBaseAPI baseApi = new TessBaseAPI();
+        //下面这一块代码为裁取身份证号码区域（否则识别乱码，不准确）
+        int x, y, w, h;
+        x = (int) (bmp.getWidth() * 0.340);
+        y = (int) (bmp.getHeight() * 0.800);
+        w = (int) (bmp.getWidth() * 0.6 + 0.5f);
+        h = (int) (bmp.getHeight() * 0.12 + 0.5f);
+        Bitmap bit_hm = Bitmap.createBitmap(bmp, x, y, w, h);
+        //初始化OCR的训练数据路径与语言
+        baseApi.init(TESSBASE_PATH, DEFAULT_LANGUAGE);
+        //设置识别模式
+        baseApi.setPageSegMode(TessBaseAPI.PageSegMode.PSM_SINGLE_LINE);
+        //设置要识别的图片
+        baseApi.setImage(bit_hm);
+        //设置字典白名单
+        baseApi.setVariable("tessedit_char_whitelist", "0123456789Xx");
+        //把识别内容设置到EditText里
+        textView.setText(baseApi.getUTF8Text());
+        //收尾
+        baseApi.clear();
+        baseApi.end();
     }
 }

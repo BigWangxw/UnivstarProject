@@ -1,14 +1,11 @@
 package com.example.dell.univstarproject.view.fragment;
 
 
-import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
 import com.example.dell.univstarproject.R;
 import com.example.dell.univstarproject.base.BaseFragment;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -16,6 +13,8 @@ import com.example.dell.univstarproject.base.BaseFragment;
 public class BrainPowerFragment extends BaseFragment {
 
 
+
+ // private DemoContrcat.DemoPre pre;
     @Override
     protected int getLayoutid() {
         return R.layout.fragment_brain_power;
@@ -45,4 +44,6 @@ public class BrainPowerFragment extends BaseFragment {
     public void setTitle() {
 
     }
+
+
 }

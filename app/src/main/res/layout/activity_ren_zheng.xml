@@ -110,9 +110,16 @@
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:background="@drawable/xuxian"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:id="@+id/imageView10" />
+            android:id="@+id/imageView10"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:id="@+id/card_id"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
         <RelativeLayout
             android:id="@+id/hahaha"
             android:layout_width="wrap_content"
@@ -151,11 +158,11 @@
         android:layout_height="10dp"
         android:background="#ffff"/>
     <Button
+        android:id="@+id/button_tijiao"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#5d67f4"
         android:text="提交"
         android:textColor="#ffff"
         android:textSize="20dp"/>
-
 </LinearLayout>

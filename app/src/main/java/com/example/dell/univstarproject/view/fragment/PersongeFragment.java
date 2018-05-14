@@ -353,6 +353,10 @@ public class PersongeFragment extends BaseFragment implements View.OnClickListen
             sign_qian.setVisibility(View.GONE);
             sign_hou.setVisibility(View.VISIBLE);
         }
+        if (requestCode==1111&&resultCode==1111){
+            sign_qian.setVisibility(View.GONE);
+            sign_hou.setVisibility(View.VISIBLE);
+        }
     }
     @Override
     public void showCon(GuanZhu guanZhu) {

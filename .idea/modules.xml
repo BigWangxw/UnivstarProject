@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/UnivstarProjec.iml" filepath="$PROJECT_DIR$/UnivstarProjec.iml" />
       <module fileurl="file://F:\UnivstarProjec\UnivstarProject.iml" filepath="F:\UnivstarProjec\UnivstarProject.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bpp/bpp.iml" filepath="$PROJECT_DIR$/bpp/bpp.iml" />
     </modules>
   </component>
 </project>

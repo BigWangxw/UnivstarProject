@@ -1,10 +1,10 @@
 package com.example.dell.univstarproject.sign.prisenter;
 
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.util.Log;
 
 import com.example.dell.univstarproject.base.BaseApp;
-import com.example.dell.univstarproject.model.http.Constant;
 import com.example.dell.univstarproject.model.http.RetrofitUtils;
 import com.example.dell.univstarproject.model.url.Service;
 import com.example.dell.univstarproject.sign.entry.Team;
@@ -26,23 +26,24 @@ import okhttp3.ResponseBody;
  * Created by Administrator on 2018/5/9 0009.
  */
 
-public class Teamprisenter implements ITeamprisenter{
+public class Teamprisenter implements ITeamprisenter {
     private Service service;
     private TeamView teamView;
 
     public Teamprisenter(TeamView teamView) {
         this.teamView = teamView;
-        service= RetrofitUtils.getRetrofitUtils().getService();
+        service = RetrofitUtils.getRetrofitUtils().getService();
     }
+
     @Override
     public void loadTeam(int id) {
-        SharedPreferences sharedPreferences = BaseApp.activity.getSharedPreferences(Constant.CookieSP, 0);
-        String string = sharedPreferences.getString(Constant.AppToken, "");
-        Map<String,String> header=new HashMap<String, String>();
-        header.put("Authorization",string);
-        Map<String,String> map=new HashMap<String, String>();
-        map.put("loginUserId",id+"");
-        service.Team(header,map)
+        SharedPreferences apptoken = BaseApp.content.getSharedPreferences("appToken", Context.MODE_PRIVATE);
+        String token = apptoken.getString("apptoken", "");
+        Map<String, String> header = new HashMap<String, String>();
+        header.put("apptoken", token);
+        Map<String, String> map = new HashMap<String, String>();
+        map.put("loginUserId", id + "");
+        service.Team(map, header)
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<ResponseBody>() {
@@ -55,7 +56,7 @@ public class Teamprisenter implements ITeamprisenter{
                     public void onNext(ResponseBody value) {
                         try {
                             String string = value.string();
-                            Log.e("str",string);
+                            Log.e("str", string);
                             Gson gson = new Gson();
                             Team team = gson.fromJson(string, Team.class);
                             List<Team.DataBean.ListBean> list = team.getData().getList();
@@ -64,10 +65,11 @@ public class Teamprisenter implements ITeamprisenter{
                             e.printStackTrace();
                         }
                     }
+
                     @Override
                     public void onError(Throwable e) {
                         String message = e.getMessage();
-                        Log.e("aaa",message);
+                        Log.e("aaa", message);
 
                     }
 
